@@ -1,63 +1,60 @@
 <div class="dash-container bg-white mt-4 pt-4 pb-4">
 
   <div class="row">
-      <div class="col-4">
-        <div class="card-left py-2">
-          <div class="user-pic">
-            <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, height: 150, width: 150, crop: :fill, class: "avatar-round-large" %>
-            <% else %>
-              <%= image_tag 'blank_avatar.png', class: "avatar-round-large" %>
-            <% end %>
-          </div>
-          <%= render 'pages/profile_card' %>
-            <div>
-              <%= link_to 'View Profile', user_path(current_user), class: "btn btn-red"  %>
-              <%= link_to 'Edit Profile', user_path(current_user), class: "btn btn-red"  %>
-            </div>
+    <div class="col-sm-12 col-md-4">
+      <div class="card-left py-2">
+        <div class="user-pic">
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, height: 150, width: 150, crop: :fill, class: "avatar-round-large" %>
+          <% else %>
+            <%= image_tag 'blank_avatar.png', class: "avatar-round-large" %>
+          <% end %>
+        </div>
+        <%= render 'pages/profile_card' %>
+        <div>
+          <%= link_to 'View Profile', user_path(current_user), class: "btn btn-red"  %>
+          <%= link_to 'Edit Profile', user_path(current_user), class: "btn btn-red"  %>
         </div>
       </div>
+    </div>
 
-      <div class="col-sm-12 col-md-8">
-        <div class="container card-right">
-          <h2 class="bookings-title mb-3">My Latest Listings</h2>
-          <div class="row">
-              <% @listings.last(3).each do |listing| %>
-                <div class="col-sm-12 col-md-4">
-                  <%= render 'pages/listing', listing: listing %>
-                </div>
-              <% end %>
-          </div>
-
-          </div>
-          <%= link_to 'New Listing', new_listing_path, class: "btn btn-red"  %>
-          <div class="bookings-container">
+    <div class="col-xs-6 col-md-8">
+      <div class="card-right">
+      <h2 class="bookings-title mb-3">My Latest Listings</h2>
+        <div class="row">
+          <% @listings.last(3).each do |listing| %>
+            <div class="col-xs-6 col-md-4">
+              <%= render 'pages/listing', listing: listing %>
+            </div>
+          <% end %>
+        </div>
+        <%= link_to 'New Listing', new_listing_path, class: "btn btn-red" %>
+        <div class="bookings-container">
           <div class="row">
             <div class="col-6">
-            <h2 class="bookings-title">My Bookings</h2>
-            <% @bookings.last(4).each do |booking| %>
+              <h2 class="bookings-title">My Bookings</h2>
+              <% @bookings.last(4).each do |booking| %>
               <p class="bookings-dashboard-text text-left">
               <strong>From:</strong> <%= booking.start_date.strftime("%b %d, %Y") %>
               <strong>To:</strong> <%= booking.return_date.strftime("%b %d, %Y") %>
               <strong>Total:</strong> ¥<%= booking.total %>
               </p>
-            <% end %>
-          </div>
+              <% end %>
+            </div>
             <div class="col-6">
-            <h2 class="bookings-title">My Orders</h2>
-            <% @orders.last(4).each do |order| %>
+              <h2 class="bookings-title">My Orders</h2>
+              <% @orders.last(4).each do |order| %>
               <p class="bookings-dashboard-text text-left">
               <strong>From:</strong> <%= order.start_date.strftime("%b %d, %Y") %>
               <strong>To:</strong> <%= order.return_date.strftime("%b %d, %Y") %>
               <strong>Total:</strong> ¥<%= order.total %>
               </p>
-            <% end %>
+              <% end %>
           </div>
-          </div>
-          <%= link_to 'See more...', bookings_path(@bookings, @orders) %>
-          </div>
+        </div>
+        <%= link_to 'See more...', bookings_path(@bookings, @orders) %>
+        </div>
       </div>
+    </div>
   </div>
-</div>
-
 </div>

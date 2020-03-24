@@ -3,7 +3,7 @@
     <div class="col-12 col-md-6">
     <div class="kimono">
       <% if @listing.photo.attached? %>
-      <%= cl_image_tag @listing.photo.key, height: 500, width: 400, crop: :fit, class:"kimono-image" %>
+      <%= cl_image_tag @listing.photo.key, height: 600, width: 500, crop: :fit, class:"kimono-image" %>
       <% else %>
       <%= image_tag "orange-hakama.jpg", class:"kimono-image"%>
       <% end %>
