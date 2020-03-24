@@ -3,28 +3,29 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button> -->
-
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item">
-            <a class="nav-link obi-nav-logo" href="/">OBI<span class="sr-only">(current)</span></a>
-          </li>
-        </ul>
-        <%= link_to 'Dashboard', dashboard_path, class:"nav-link obi-link" %>
-        <% if user_signed_in? %>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "obi-link" %>
-        <% else %>
-          <%= link_to "Login", new_user_session_path, class: "obi-link" %>
-        <% end %>
-      </div>
-
-        <%= form_tag listings_path, method: :get, class:"form-inline"  do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Find a kimono"
-          %>
-          <%= submit_tag "Search", class: "btn btn-search"  %>
-        <% end %>
-
+      <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link obi-nav-logo" href="/">OBI<span class="sr-only">(current)</span></a>
+      </li>
+     </ul>
+    <%= link_to 'Dashboard', dashboard_path, class:"nav-link obi-link nav-link" %>
+    <% if user_signed_in? %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "obi-link nav-link" %>
+    <% else %>
+      <%= link_to "Login", new_user_session_path, class: "obi-link nav-link" %>
+    <% end %>
+    <%= form_tag listings_path, method: :get, class:"form-inline nav-link"  do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control input-nav",
+      placeholder: "Find a kimono"
+    %>
+    <%= submit_tag "Search", class: "btn btn-search"  %>
+  <% end %>
+  </div>
+  
 </nav>
