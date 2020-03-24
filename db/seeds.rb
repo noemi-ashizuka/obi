@@ -24,7 +24,7 @@ end
 
 User.first(10).each do |user|
   rand(1..5).times do
-    Listing.create!(user: user, title: KIMONOS.sample, price: Faker::Number.number(digits: 4), color: Listing::COLORS.sample, category: Listing::CATEGORIES.sample)
+    Listing.create!(user: user, title: KIMONOS.sample, price: Faker::Number.number(digits: 3), color: Listing::COLORS.sample, category: Listing::CATEGORIES.sample)
   end
 end
 
@@ -35,16 +35,20 @@ User.last(10).each do |user|
   end
 end
 
-User.create!(
+yuka = User.create!(
   email: "yuka@gmail.com",
   password: "123456",
   first_name: "Yuka",
   profile_info: "I am passionate about kimonos! I have a variety of different styles of kimonos from yukatas to hakamas!"
   )
+  file = URI.open('https://avatars1.githubusercontent.com/u/40887017?s=460&v=4')
+  yuka.photo.attach(io: file, filename: 'yuka.jpg', content_type: 'image/jpg')
 
-User.create!(
+noemi = User.create!(
   email: "noemi@gmail.com",
   password: "123456",
   first_name: "Noemi",
   profile_info: "I love Japanese culture and traveling to different parts of Japan. I would love to rent a kimono and get the full Japanese experience!"
   )
+  file = URI.open('https://avatars0.githubusercontent.com/u/56534210?s=460&v=4')
+  noemi.photo.attach(io: file, filename: 'noemi.jpg', content_type: 'image/jpg')

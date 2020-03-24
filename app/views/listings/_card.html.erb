@@ -2,7 +2,7 @@
 <div class="index-card">
   <div class="index-card-pic">
     <% if listing.photo.attached? %>
-      <%= cl_image_tag listing.photo.key, height: 250, width: 300, crop: :fill %>
+      <%= cl_image_tag listing.photo.key, height: 250, width: 300, crop: :fit %>
     <% else %>
       <%= image_tag "orange-hakama.jpg"%>
     <% end %>
@@ -15,7 +15,7 @@
         <%= link_to user_path(listing)  do %>
         <% if  listing.user.photo.attached? %>
           <%#= cl_image_tag current_user.photo.key, height: 150, width: 150, crop: :fill %>
-          <%= cl_image_tag listing.user.photo.key, height: 150, width: 150, crop: :fill %>
+          <%= cl_image_tag listing.user.photo.key, height: 150, width: 150, crop: :fit %>
           <% else %>
           <%= image_tag 'blank_avatar.png' %>
         <% end %>

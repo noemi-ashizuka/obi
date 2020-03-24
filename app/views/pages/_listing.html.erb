@@ -1,6 +1,6 @@
 <div class="listing-card">
     <% if listing.photo.attached? %>
-      <%= cl_image_tag listing.photo.key, height: 300, width: 250, crop: :scale %>
+      <%= cl_image_tag listing.photo.key, height: 300, width: 250, crop: :fit %>
     <% else %>
       <%= image_tag "orange-hakama.jpg" %>
     <% end %>
