@@ -6,15 +6,17 @@
   text-align: center;
   padding: 20px;
   border-radius: 5px;
-
+  
   h2 {
     text-align: center;
     font-size: 32px;
     color: $red;
+    margin-bottom: 24px;
   }
 
   h3 {
     font-size: 22px;
+    margin-bottom: 24px;
   }
 
   p {
@@ -25,13 +27,16 @@
 }
 
 .card-right {
-
   text-align: center;
+  padding: 24px;
+  border-left: 1px solid rgba(40,40,40,0.2);
 
   h2 {
     text-align: center;
     font-size: 32px;
+    margin-bottom: 24px;
   }
+  
   .btn-gray {
     display: inline-block;
     margin-top: 15px;
@@ -42,7 +47,10 @@
     width: 150px;
     height: 225px;
     border-radius: 4px;
-
+    margin: 0 auto;
+    margin-bottom: 24px;
+    margin-top: 24px;
+    
     img {
       padding: 4px;
       width: 100px;
@@ -52,9 +60,7 @@
     .icons {
       color: $red;
     }
-
   }
-
 }
 
 .bookings-dashboard-text {
@@ -70,4 +76,13 @@
 .bookings-container {
   margin-top: 24px;
   margin-bottom: 16px;
+}
+
+@media (min-width: 480px) {
+  .card-left {
+    margin: 0 auto;
+  }
+  .card-right {
+    margin: 0 auto;
+  }
 }
