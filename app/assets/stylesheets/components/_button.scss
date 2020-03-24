@@ -12,16 +12,21 @@
 
 .btn-gray {
   background-color: $light-gray;
-  font-color: black;
+  color: black;
   border-radius: 8px;
   padding: 10px 24px;
 }
 
-.btn-search{
-  margin-bottom: 10px;
+.btn-search {
   color: $light-beige;
   border-radius: 8px;
   border: 1px solid;
+  margin-top: 2px;
+}
+
+.input-nav {
+  height: 42px;
+  margin-bottom: 10px;
 }
 
 
