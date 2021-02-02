@@ -10,7 +10,6 @@ class ListingsController < ApplicationController
       @listings = @listings.search_by_title_and_description(params[:query])
     end
 
-
     if  params[:color] && !params[:color].empty?
       @listings = @listings.where(color: params[:color])
     end

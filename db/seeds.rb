@@ -13,6 +13,7 @@ Booking.destroy_all
 Listing.destroy_all
 User.destroy_all
 
+puts "Creating Users"
 20.times do
   User.create!(
   first_name: Faker::Name.first_name,
@@ -22,12 +23,14 @@ User.destroy_all
   )
 end
 
+puts "Creating Listings"
 User.first(10).each do |user|
   rand(1..5).times do
     Listing.create!(user: user, title: KIMONOS.sample, price: Faker::Number.number(digits: 3), color: Listing::COLORS.sample, category: Listing::CATEGORIES.sample)
   end
 end
 
+puts "Creating Bookings"
 User.last(10).each do |user|
   rand(1..3).times do
     start_date = Faker::Date.in_date_period(month: 1)
@@ -52,3 +55,4 @@ noemi = User.create!(
   )
   file = URI.open('https://avatars0.githubusercontent.com/u/56534210?s=460&v=4')
   noemi.photo.attach(io: file, filename: 'noemi.jpg', content_type: 'image/jpg')
+
